@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("coding with didem .. :) Musmutlu yıllar !!");
+  res.send("running");
 });
 app.use("/posts", postRoutes);
 
