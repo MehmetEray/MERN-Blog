@@ -11,22 +11,24 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("running");
+    res.send("running");
 });
 app.use("/posts", postRoutes);
 
 const PORT = process.env.PORT || 5000;
 
 mongoose
-  .connect(process.env.con_url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    app.listen(PORT, () => console.log(`----------Server running on port: ${PORT}----------- `));
-  })
-  .catch((error) => {
-    console.error(error.message);
-  });
+    .connect(process.env.con_url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => {
+        app.listen(PORT, () =>
+            console.log(`----------Server running on port: ${PORT}----------- `)
+        );
+    })
+    .catch((error) => {
+        console.error(error.message);
+    });
 
 mongoose.set("useFindAndModify", false);

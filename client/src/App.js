@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { fetchPosts } from "./actions/post";
+import { useDispatch } from "react-redux";
+import { fetchPosts } from "./actions/post";
 import { makeStyles } from "@material-ui/core/styles";
 import {
     BrowserRouter as Router,
@@ -23,8 +23,6 @@ import PenIcon from "@material-ui/icons/Create";
 import PostsList from "./components/PostsList.jsx";
 import AddPostForm from "./components/AddPostForm.jsx";
 
-// import AddPostForm from "./components/AddPostForm";
-// import PostDetails from "./components/PostDetails";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -40,12 +38,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 const App = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const [open, setOpen] = useState(false);
-    // useEffect(() => {
-    //     dispatch(fetchPosts());
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(fetchPosts());
+    }, [dispatch]);
 
     const handleOpen = () => {
         setOpen(true);
@@ -83,7 +81,7 @@ const App = () => {
                             color="primary"
                             variant="outlined"
                             startIcon={<PenIcon />}
-                            // onClick={handleOpen}
+                            onClick={handleOpen}
                         >
                             Yeni Yazı
                         </Button>
