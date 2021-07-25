@@ -67,7 +67,7 @@ const AddPostForm = ({ open, handleClose }) => {
                     <form
                         noValidate
                         autoComplete="off"
-                        onSubmit={handleSubmit(onSubmit)}
+                        onSubmit={() => handleSubmit(onSubmit)}
                     >
                         <TextField
                             id="title"
@@ -76,7 +76,7 @@ const AddPostForm = ({ open, handleClose }) => {
                             variant="outlined"
                             className={classes.textField}
                             size="small"
-                            {...register("test", { required: true })}
+                            {...register("title", { required: true })}
                             fullWidth
                         />
                         <TextField
@@ -86,7 +86,7 @@ const AddPostForm = ({ open, handleClose }) => {
                             variant="outlined"
                             className={classes.textField}
                             size="small"
-                            {...register("test", { required: true })}
+                            {...register("subtitle", { required: true })}
                             fullWidth
                         />
 
@@ -96,7 +96,7 @@ const AddPostForm = ({ open, handleClose }) => {
                             name="content"
                             multiline
                             size="small"
-                            {...register("test", { required: true })}
+                            {...register("content", { required: true })}
                             rows={4}
                             className={classes.textField}
                             variant="outlined"
@@ -111,12 +111,12 @@ const AddPostForm = ({ open, handleClose }) => {
                 </div>
             </DialogContent>
             <DialogActions>
-                <Button onClick={clearForm} color="inherit">
+                <Button onClick={() => clearForm} color="inherit">
                     Vazgeç
                 </Button>
                 <Button
                     type="submit"
-                    onClick={() => onSubmit()}
+                    onClick={() => handleSubmit(onSubmit)()}
                     color="primary"
                     variant="outlined"
                 >
