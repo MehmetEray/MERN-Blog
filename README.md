@@ -1,4 +1,5 @@
 # MERN-Blog
+# MongoDB ExpressJS ReactJS-Redux NodeJS
 For run client
 cd client/
 npm install --save
