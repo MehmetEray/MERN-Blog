@@ -22,6 +22,7 @@ import MenuIcon from "@material-ui/icons/MenuBook";
 import PenIcon from "@material-ui/icons/Create";
 import PostsList from "./components/PostsList.jsx";
 import AddPostForm from "./components/AddPostForm.jsx";
+import PostDetails from "./components/PostDetails.jsx";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -74,7 +75,9 @@ const App = () => {
                             color="secondary"
                             className={classes.title}
                         >
-                            <a href="http://localhost:3000/posts">Blogify</a>
+                            <a href="http://localhost:3000/posts">
+                                Mehmet Eray's Blog
+                            </a>
                         </Typography>
 
                         <Button
@@ -96,7 +99,11 @@ const App = () => {
                                     path="/posts"
                                     component={PostsList}
                                 />
-                                {/* <Route exact path="/posts/:id" component={PostDetails} /> */}
+                                <Route
+                                    exact
+                                    path="/posts/:id"
+                                    component={PostDetails}
+                                />
                             </Switch>
                             <Redirect from="/" to="/posts" />
                         </Router>

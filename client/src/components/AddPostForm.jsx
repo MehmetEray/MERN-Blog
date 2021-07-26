@@ -5,16 +5,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
     Button,
     TextField,
-    Select,
-    Input,
-    MenuItem,
     Dialog,
     DialogActions,
     DialogContent,
     DialogContentText,
     DialogTitle,
 } from "@material-ui/core";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { createPost } from "../actions/post";
@@ -38,7 +35,7 @@ const AddPostForm = ({ open, handleClose }) => {
     const dispatch = useDispatch();
 
     const [file, setFile] = useState(null);
-    const { register, handleSubmit, control, reset } = useForm({
+    const { register, handleSubmit, reset } = useForm({
         resolver: yupResolver(postSchema),
     });
 
